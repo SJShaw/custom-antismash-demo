@@ -1,0 +1,5 @@
+RULE simple
+    CATEGORY base
+    CUTOFF 10
+    NEIGHBOURHOOD 10
+    CONDITIONS AMP-binding and not PP-binding

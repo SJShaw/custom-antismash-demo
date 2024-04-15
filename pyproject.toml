@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "custom-antismash-demo"
+description = "A demonstration of an analysis pipeline using antiSMASH as a library"
+dynamic = ["version"]
+readme = "README.md"
+license = {file = "LICENSE"}
+dependencies = [
+  # temporarily this dependency points at a branch of a fork,
+  # this will be replaced with github.com/antismash/antismash#master at some stage
+  # however, specifing a particular version is much safer, e.g. "@7-1-0" instead of "#master"
+  "antismash@git+https://github.com/SJShaw/antismash#",
+]
+requires-python = ">= 3.11"
+authors = [
+  {name = "SJShaw", email = "SJShaw@users.noreply.github.com"},
+]
+maintainers = [
+  {name = "SJShaw", email = "SJShaw@users.noreply.github.com"},
+]
+
+[project.scripts]
+custom-smash = "customsmash:__main__.entrypoint"
+
+[tool.setuptools.dynamic]
+version = {attr = "customsmash.__version__"}
