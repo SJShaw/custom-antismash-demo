@@ -25,6 +25,10 @@ from customsmash.modules import custom_analysis
 antismash.main.replace_analysis_modules([custom_analysis, pfam2go])
 antismash.main.replace_detection_modules([cluster_hmmer, custom_detection, genefunctions])
 
+# override search path for any user config file
+antismash.config.set_user_config_file("~/.customsmash1.cfg")  # if it doesn't exist, it's ignored
+# override default config file path
+antismash.config.set_alternate_defaults_file(antismash.common.path.get_full_path(__file__, "config", "default.cfg"))
 
 __version__ = "1.0"
 
